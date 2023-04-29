@@ -1,0 +1,101 @@
+*{
+    padding: 9px;
+}
+
+body {
+    background-color: gainsboro;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Philosopher', sans-serif;
+}
+p{
+    font-size: 18px;
+    font-family: 'Montserrat Alternates', sans-serif;
+}
+h3{
+    font-size: 30px;
+}
+h4{
+    font-size: 27px;
+}
+h5{
+    font-size: 25px;
+}
+h6{
+    font-size: 23px;
+    text-transform: uppercase;
+}
+
+.title{
+    font-size: 40px;
+    text-align: center;
+}
+.subtitle{
+    font-family: 'Philosopher', sans-serif;
+    font-size: 36px;
+    text-align: center;
+}
+
+.code_js_sint{
+    border: 1px solid blue;
+    color: rgb(231, 15, 105);
+    padding: 32px;
+    margin-bottom: 20px;
+}
+.code_js_sint p {
+    font-family: 'Philosopher', sans-serif;
+    font-size: 20px;
+}
+.code_js_spn{
+    color: blue;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 18px;
+}
+
+.list_func{
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 18px;
+}
+.fun_dec{
+    border: 2px solid brown;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 36px;
+    margin-bottom: 20px;
+}
+.fun_exp{
+    border: 2px solid brown;
+    padding-left: 32px;
+    padding-right: 32px;
+    padding-bottom: 36px;
+    margin-bottom: 20px;
+}
+.function_basic{
+    border-top: 2px solid brown;
+}
+.inform{
+    border: 2px solid red;
+    background-color: rgb(183, 183, 255);
+    color: red;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+.inform_attention{
+    border: 1px solid #00008B;
+    background-color: #B0E0E6;
+    padding: 20px 20px 30px 30px;
+    color: #00008B;
+    margin-bottom: 30px;
+}
+.list_attention{
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 18px;
+}
+
+.variant{
+    border: 2px solid salmon;
+    padding: 30px;
+}
