@@ -10,9 +10,649 @@
     <script src="funckjs.js"></script>
 </head>
 <body>
-    <header></header>
+    <header>
+        <h1 class="title">
+            Продолжение изучения функции JS
+        </h1>
+    </header>
     <main>
-        <section class=""></section>
+        <section class="functions">
+            <h2 class="subtitle">
+                Последовательный вызов функций в JavaScript
+            </h2>
+            <div class="">
+                <p>
+                    Можно также результат работы одной функции передать параметром в другую, например, вот так мы сначала найдем квадрат числа 2, а затем квадрат результата:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func(num) {<br>
+                            return num ** 2;<br>
+                        }<br><br>
+                        
+                        let res = func(func(2));<br>
+                        console.log/alert(res); <span class="code_js_spn"> // выведет 16</span>
+                    </p>                    
+                </div>
+                <p>
+                    Функции, конечно же, не обязательно должны быть одинаковыми.<br>
+                    Пусть, например, у нас есть функция, возвращающая квадрат числа, и функция, возвращающая куб числа:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function square(num) {<br>
+                            return num ** 2;<br>
+                        }<br><br>
+                        
+                        function cube(num) {<br>
+                            return num ** 3;<br>
+                        } 
+                    </p>
+                </div>
+                <p>
+                    Давайте с помощью этих функций возведем число 2 в квадрат, а затем результат этой операции возведем в куб:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        let res = cube(square(2));<br>
+                        console.log/alert(res);
+                    </p>
+                </div>
+                <p>
+                    Пусть теперь у нас есть функция, возвращающая квадрат числа, и функция, находящая сумму двух чисел:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function square(num) {<br>
+                            return num ** 2;<br>
+                        }<br><br>
+                        
+                        function sum(num1, num2) {<br>
+                            return num1 + num2;<br>
+                        }
+                    </p>
+                </div>
+                <p>
+                    Найдем с помощью этих функций сумму квадрата числа 2 и квадрата числа 3:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        let res = sum(square(2), square(3));<br>
+                        console.log/alert(res);
+                    </p>
+                </div>
+            </div>
+            <div class="home_work">
+                <h4>
+                    Задание № 1
+                </h4>
+                <div class="homeWork">
+                    <div>
+                        <p>
+                            Пусть у вас есть функция, возвращающая квадратный корень из числа, и функция, округляющая дробь до трех знаков в дробной части:
+                        </p>
+                        <div class="code_js_sint">
+                            <p>
+                                function sqrt(num) {<br>
+                                    return Math.sqrt(num);<br>
+                                }<br><br>
+                                
+                                function round(num) {<br>
+                                    return num.toFixed(3);<br>
+                                }
+                            </p>
+                        </div>
+                        <p>
+                            С помощью этих функций найдите квадратный корень из числа 2 и округлите его до трех знаков в дробной части. 
+                        </p>
+                        <p>
+                            Решение задания смотрим в файлк JS.
+                        </p>
+                    </div>
+                </div>   
+                <h4>
+                    Задание № 2
+                </h4> 
+                <div class="homeWork">
+                    <div>
+                        <p>
+                            Пусть у вас есть функция, возвращающая квадратный корень из числа, и функция, возвращающая сумму трех чисел:
+                        </p>
+                        <div class="code_js_sint">
+                            <p>
+                                function sqrt(num) {<br>
+                                    return Math.sqrt(num);<br>
+                                }<br><br>
+                                
+                                function sum(num1, num2, num3) {<br>
+                                    return num1 + num2 + num3;<br>
+                                }
+                            </p>
+                        </div>
+                        <p>
+                            С помощью этих функций найдите сумму корней чисел 2, 3 и 4 и запишите ее в переменную res. 
+                        </p>
+                    </div>
+                </div>
+                <h4>
+                    Задание № 3
+                </h4>    
+                <div class="homeWork">
+                    <div>
+                        <p>
+                            Пусть у вас есть функция, округляющая дробь до трех знаков в дробной части:
+                        </p>
+                        <div class="code_js_sint">
+                                <p>                                
+                                    function round(num) {<br>
+                                        return num.toFixed(3);<br>
+                                    }
+                                </p>
+                        </div>
+                        <p>
+                            С помощью этой функции модифицируйте предыдущую задачу так, чтобы в переменную res записывалась дробь, округленная до 3-х знаков в дробной части.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="return_in_js">
+            <h2 class="subtitle">
+                Тонкое место return в JavaScript
+            </h2>
+            <div class="">
+                <p>
+                    После того, как выполнится инструкция return - функция закончит свою работу и никакой код дальше не выполнится. <br>
+                    Смотрите пример:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func(num) {<br>
+                            return num ** 2;<br><br>
+                            
+                            console.log('!'); <span class="code_js_spn">// этот код никогда не выполнится</span><br>
+                        }<br><br>
+                        
+                        let res = func(3);
+                        
+                    </p>
+                </div>
+                <p>
+                    Это не значит, что в функции должен быть один return.<br>
+                    Но выполнится только один из них.<br>
+                    В следующем примере в зависимости от значения параметра выполнится либо первый, либо второй return:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func(num) {<br>
+                            if (num >= 0) {<br>
+                                return '+++';<br>
+                            } else {<br>
+                                return '---';<br>
+                            }<br>
+                        }<br><br>
+                        
+                        console.log(func( 3)); <span class="code_js_spn"> // выведет '+++'</span><br>
+                        console.log(func(-3)); <span class="code_js_spn"> // выведет '---'</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section class="">
+            <h2 class="subtitle">
+                Цикл и return в JavaScript
+            </h2>
+            <div class="">
+                <p>
+                    Пусть у нас есть функция, возвращающая сумму чисел от 1 до 5: 
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func() {<br>
+                            let sum = 0;<br><br>
+                            
+                            for (let i = 1; i <= 5; i++) {<br>
+                                sum += i;<br>
+                            }<br><br>
+                            
+                            return sum;<br>
+                        }<br><br>
+                        
+                        let res = func();<br>
+                        console.log/alert(res); <span class="code_js_spn"> // выведет 15</span>
+                    </p>
+                </div>
+                <div class="inform_attention">
+                    <p>
+                        * Напоминаю, что в данном коде цикл будет выполнен 5 раз, т.е. до тех пор пока переменная i не будет равна 5.<br>
+                        При этом в переменную sum будет записываться и сохраняться значение после каждого цикла, т.е.:
+                    </p>
+                    <ul class="list_func">
+                        <li>
+                            1 цикл<br>
+                            0=0+1<br>
+                            sum =1
+                        </li>
+                        <li>
+                            2 цикл<br>
+                            1 = 1 + 2<br>
+                            sum = 3
+                        </li>
+                        <li>
+                            3 цикл<br>
+                            3 = 3 + 3<br>
+                            sum = 6
+                        </li>
+                        <li>
+                            4 цикл<br>
+                            6 = 4 + 6<br>
+                            sum = 10
+                        </li>
+                        <li>
+                            5 цикл<br>
+                            10 = 5 + 10<br>
+                            sum = 15
+                        </li>
+                    </ul>
+                </div>
+                <p>
+                    Пусть теперь мы расположим return внутри цикла, вот так:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func() {<br>
+                            let sum = 0;<br><br>
+                            
+                            for (let i = 1; i <= 5; i++) {<br>
+                                sum += i;<br>
+                                return sum;<br>
+                            }<br>
+                        }<br><br>
+                        
+                        let res = func();<br>
+                        console.log/alert(res); <span class="code_js_spn">выведет 1</span>
+                    </p>
+                </div>
+                <p>
+                    В этом случае цикл прокрутится лишь одну итерацию и произойдет автоматический выход из функции (ну и заодно из цикла).<br>
+                    А за одну итерацию цикла в переменной sum окажется лишь число 1, а не вся нужная сумма.
+                </p>
+            </div>
+        </section>
+        <section class="application_return_js">
+            <h2 class="subtitle">
+                Применение return в циклах в JavaScript
+            </h2>
+            <div class="">
+                <p>
+                    То, что return расположен внутри цикла, не всегда может быть ошибкой.<br> 
+                    В следующем примере сделана функция, которая определяет, сколько первых элементов массива нужно сложить, чтобы сумма стала больше или равна 10:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func(arr) {<br>
+                            let sum = 0;<br><br>
+                            
+                            for (let i = 0; i < arr.length; i++) {<br>
+                                sum += arr[i];<br><br>
+                                
+                                <span class="code_js_spn"> // Если сумма больше или равна 10:</span><br>
+                                if (sum >= 10) {<br>
+                                    return i + 1; <span class="code_js_spn"> // выходим из цикла и из функции</span>
+                                }<br>
+                            }<br>
+                        }<br><br>
+                        
+                        let res = func([1, 2, 3, 4, 5]);<br>
+                        console.log/alert(res); <span class="code_js_spn"> // выведит 4</span>
+                    </p>
+                </div>
+                <div class="inform_attention">
+                    <p>
+                        * НАПИМИНАНИЕ<br>
+                        Свойство <b>length</b> определеяет длину массиву(размер) - то есть количество элементов в массиве и имеет синтаксис - <b>arr.length</b>.
+                    </p>
+                </div>
+                <p>
+                    В этом примере сделана функция, которая вычисляет, сколько целых чисел, начиная с 1, нужно сложить, чтобы результат был больше 100:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func() {<br>
+                            let sum = 0;<br>
+                            let i = 1;<br><br>
+                            
+                            while (true) { <span class="code_js_spn"> // бесконечный цикл</span> <br>
+                                sum += i;<br><br>
+                                
+                                if (sum >= 100) {<br>
+                                    return i; <span class="code_js_spn"> // цикл крутится пока не выйдет тут</span><br>
+                                }<br><br>
+                                
+                                i++;<br>
+                            }<br>
+                        }<br><br>
+                        
+                        console.log/alert( func() ); <span class="code_js_spn">// выводит 14</span>
+                    </p>
+                </div>
+                <div class="inform_attention">
+                    <p>
+                        В данном примере мы внутри функции создали перменные <b>sum</b> со значением <b>0</b> и переменную <b>i</b> со значением <b>1</b>.<br>
+                        Далее мы создали бесконечный цикл while с условием True(правда/верно), где укзали, что переменная <b>sum</b> увеличивается в цикле на значение переменной <b>i</b>, то есть <b>sum = sum + i</b> или короче <b>sum +=i</b>.<br>
+                        Далее пишем условие, когда цикл должен зкончиться или проще говоря - когда функция выйдет из выполнения цикла, а именно у нас следующее условие - <br>
+                        если значение переменной <b>sum</b> больше или равно 100, то цикл возвращает переменню <b>i</b>, т.е. прекращает выполнятся, это мы задаем <b>return</b>.<br>
+                        Теперь мы указываем, что необходимо делать с переменной <b>i</b>, для нашего цикла while, а именно увеличивать значнеие переменной <b>i</b> на единицу, т.е. <b>i++</b>.<br><br>
+                        В конце мы выводим в консоль или браузер нашу функцию
+                    </p>
+                </div>
+                <div class="home_work">
+                    <h4>
+                        Задание
+                    </h4>
+                    <div class="homeWork">
+                        <p>
+                            Напишите функцию, которая параметром будет принимать число и делить его на 2 столько раз, пока результат не станет меньше 10.<br>
+                            Пусть функция возвращает количество итераций, которое потребовалось для достижения результата.
+                        </p>
+                        <p class="code_js_spn">
+                            Решение задания смотрим в файле JS.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="work_with_return">
+            <h2 class="subtitle">
+                Прием работы с return в JavaScript
+            </h2>
+            <div class="">
+                <p>
+                    Существуют некоторые приемы работы с return, упрощающие код.<br><br>
+                    Рассмотрим, к примеру, следующий код:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func(num) {<br>
+                            let res;<br><br>
+                            
+                            if (num >= 0) {<br>
+                                res = Math.sqrt(num);<br>
+                            } else {<br>
+                                res = 0;<br>
+                            }<br><br>
+                            
+                            return res;<br>
+                        }<br><br>
+                        
+                        console.log/alert(func(3));
+                    </p>
+                </div>
+                <p>
+                    Как вы видите, в данном коде в зависимости от условия в переменную <b>res</b> будет попадать либо одно, либо другое значение.<br>
+                    А последней строкой функции содержимое переменной <b>res</b> возвращается через <b>return</b>.
+                </p>
+                <p>
+                    Давайте перепишем этот код в более сокращенной форме, избавившись от ненужной здесь переменной <b>res</b>:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func(num) {<br>
+                            if (num >= 0) {<br>
+                                return Math.sqrt(num);<br>
+                            } else {<br>
+                                return 0;<br>
+                            }<br>
+                        }<br><br>
+                        
+                        console.log/alert(func(3));
+                    </p>
+                </div>
+                <div class="home_work">
+                    <h4>
+                        Задание
+                    </h4>
+                    <div class="homeWork">
+                        <p>
+                            Дана следующая функция
+                        </p>
+                        <div class="code_js_sint">
+                            <p>
+                                function func(num1, num2) {<br>
+                                    let res;<br><br>
+                                    
+                                    if (num1 > 0 && num2 > 0) {<br>
+                                        res = num1 * num2;<br>
+                                    } else {<br>
+                                        res = num1 - num2;<br>
+                                    }<br><br>
+                                    
+                                    return res;<br>
+                                }<br><br>
+
+                                console.log/alert(func(3, 4));
+                            </p>
+                        </div>
+                        <p>
+                            Перепишите ее в сокращенной форме согласно изученной теории.
+                        </p>
+                        <p>
+                            <span class="code_js_spn">Решение смотрим в файле JS</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="">
+            <h2 class="subtitle">
+                Флаги в функциях JavaScript
+            </h2>
+            <div class="">
+                <div class="definition">
+                    <p>
+                        <b>Флаг</b> - это специальная переменная, которое может принимать только два значения: <b>true</b> и <b>false</b>. <br>
+                        С помощью флагов можно решать задачи, проверяющие отсутствие чего-либо: к примеру, можно проверить, что в массиве нет элемента с определенным значением. 
+                    </p>
+                </div>
+                <p>
+                    В функциях можно использовать флаги в неявном виде с помощью инструкции <b>return</b>.<br>
+                    Давайте посмотрим, как это делается.<br>
+                    Пусть у нас есть следующая функция, проверяющая, что все элементы массива положительные числа:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function isPositive(arr) {<br>
+                            let flag = true;<br><br>
+                            
+                            for (let elem of arr) {<br>
+                                if (elem < 0) {<br>
+                                    flag = false;<br>
+                                }<br>
+                            }<br><br>
+                            
+                            return flag;<br>
+                        }                        
+                    </p>
+                </div>
+                <p>
+                    Давайте перепишем код функции с помощью неявного использования флагов:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function isPositive(arr) {<br>
+                            for (let elem of arr) {<br>
+                                if (elem < 0) {<br>
+                                    return false;<br>
+                                }<br>
+                            }<br><br>
+                            
+                            return true;<br>
+                        }
+                    </p>
+                </div>
+                <p>
+                    Как это работает: если в массиве найдется нужный элемент - мы выйдем из функции (и из цикла тоже) с помощью <b>return</b>.<br>
+                    Но если в массиве не найдется нужный элемент - выхода из функции не произойдет и выполнение дойдет до команды <b>return true</b>.<br>
+                    И получится, что функция вернет <b>true</b> в знак того, что в массиве все элементы положительные.
+                </p>
+                <div class="home_work">
+                    <h4>
+                        Задание № 1
+                    </h4>
+                    <div class="homeWork">
+                        <p>
+                            Сделайте функцию, которая параметром будет принимать массив с числами, и проверять, что все элементы в этом массиве являются четными числами. 
+                        </p>
+                    </div>
+                    <h4>
+                        Задание № 2
+                    </h4>
+                    <div class="homeWork">
+                        <p>
+                            Сделайте функцию, которая параметром будет принимать число и проверять, что все цифры это числа являются нечетными.
+                        </p>
+                    </div>
+                    <h4>
+                        Задание № 3
+                    </h4>
+                    <div class="homeWork">
+                        <p>
+                            Сделайте функцию, которая параметром будет принимать массив и проверять, есть ли в этом массиве два одинаковых элемента подряд.
+                        </p>
+                        <p>
+                            <span class="code_js_spn">Решение смотрим в файле JS</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="not_logic_if">
+            <h2 class="subtitle">
+                Логические операторы без if в функциях JavaScript
+            </h2>
+            <div class="">
+                <p>
+                    Пусть у нас есть функция с ифом.<br>
+                    Вот она:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func(a, b) {<br>
+                            if (a > b) {<br>
+                                return true;<br>
+                            } else {<br>
+                                return false;<br>
+                            }<br>
+                        }
+                    </p>
+                </div>
+                <p>
+                    Как вы уже знаете из предыдущих уроков, конструкции if, возвращающие булевы значения, можно переписывать в сокращенной форме. <br>
+                    Давайте сделаем это:
+                </p>
+                <div class="code_js_sint">
+                    <p>
+                        function func(a, b) {<br>
+                            return a > b;<br>
+                        }
+                    </p>
+                </div>
+            </div>
+            <div class="home_work">
+                <h4>
+                    Задание № 1
+                </h4>
+                <div class="homeWork">
+                    <p>
+                        Дана следующая функция:
+                    </p>
+                    <div class="code_js_sint">
+                        <p>
+                            function func(a, b) {<br>
+                                if (a == b) {<br>
+                                    return true;<br>
+                                } else {<br>
+                                    return false;<br>
+                                }<br>
+                            }
+                        </p>
+                    </div>
+                    <p>
+                        Перепишите ее код в сокращенной форме согласно изученной теории.
+                    </p>
+                </div>
+                <h4>
+                    Задание № 2
+                </h4>
+                <div class="homeWork">
+                    <p>
+                        Дана следующая функция:
+                    </p>
+                    <div class="code_js_sint">
+                        <p>
+                            function func(a, b) {<br>
+                                if (a != b) {<br>
+                                    return true;<br>
+                                } else {<br>
+                                    return false;<br>
+                                }<br>
+                            }
+                        </p>
+                    </div>
+                    <p>
+                        Перепишите ее код в сокращенной форме согласно изученной теории. 
+                    </p>
+                </div>
+                <h4>
+                    Задание № 3
+                </h4>
+                <div class="homeWork">
+                    <p>
+                        Дана следующая функция:
+                    </p>
+                    <div class="code_js_sint">
+                        <p>
+                            function func(a, b) {<br>
+                                if (a + b >= 10) {<br>
+                                    return true;<br>
+                                } else {<br>
+                                    return false;<br>
+                                }<br>
+                            }
+                        </p>
+                    </div>
+                    <p>
+                        Перепишите ее код в сокращенной форме согласно изученной теории.
+                    </p>
+                </div>
+                <div class="homeWork">
+                    <h4>
+                        Задание № 4
+                    </h4>
+                    <p>
+                        Дана следующая функция:
+                    </p>
+                    <div class="code_js_sint">
+                        <p>
+                            function func(num) {<br>
+                                if (num >= 0) {<br>
+                                    return true;<br>
+                                } else {<br>
+                                    return false;<br>
+                                }<br>
+                            }
+                        </p>
+                    </div>
+                    <p>
+                        Перепишите ее код в сокращенной форме согласно изученной теории. 
+                    </p>
+                </div>
+                <p>
+                    <span class="code_js_spn">Решение смотрим в файле JS</span>
+                </p>
+            </div>
+        </section>
+        <section class=""><h2></h2><div class=""><h3></h3><div class=""><p></p></div></div></section>
     </main>
     <footer></footer>
 </body>
